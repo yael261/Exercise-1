@@ -1,0 +1,44 @@
+---
+title: "Exercise 1"
+author: "Yael Marti"
+format: html
+editor: visual
+---
+
+## Parameters
+
+I begin by defining my parameters in a way they can easily be changed again for other applications.
+
+```{r}
+mu = 10
+dispersion = 2
+size = 1/dispersion
+```
+
+## Sampling
+
+Hundred values are sampled from the negative binomial distribution with n = 100, dispersion =2 and mu = 10.
+
+```{r}
+x <- rnbinom(100, size, mu = mu)
+```
+
+## Plotting
+
+Two plots are created using hist(). One with the normal linear scale and the other using the log(x+1) scale.
+
+**Linear scale**
+
+```{r}
+hist(x)
+```
+
+**log(x+1)**
+
+```{r}
+hist(log(x+1))
+```
+
+## Reporting Results
+
+The mean of the sample is `r mean(x)` and the variance `r mean(x) + (mean(x)^2)*dispersion`.
